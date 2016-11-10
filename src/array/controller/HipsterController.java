@@ -39,8 +39,13 @@ public class HipsterController
 		return hipsters;
 	}
 	
-	public Hipster[] getWords()
+	public String[] getWords()
 	{
-		return getWords();
+		return words;
+	}
+	
+	public int[] getNumbers()
+	{
+		return numbers;
 	}
 }
