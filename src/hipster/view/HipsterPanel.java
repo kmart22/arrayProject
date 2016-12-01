@@ -3,6 +3,9 @@ package hipster.view;
 import array.controller.HipsterController;
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class HipsterPanel extends JPanel
 {
 
@@ -34,6 +37,7 @@ public class HipsterPanel extends JPanel
 			this.add(infoLabel);
 			this.add(myButton);
 		}
+		
 		private void setupLayout()
 		{
 			baseLayout.putConstraint(SpringLayout.NORTH, myButton, 68, SpringLayout.NORTH, this);
@@ -47,6 +51,21 @@ public class HipsterPanel extends JPanel
 		
 		private void setupListeners()
 		{
-			
+			dropDown.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent selection)
+				{
+					infoLabel.setText(dropDown.getSelectedItem().toString());
+				}
+				
+			});
+			myButton.addActionListener(new ActionListener()
+			{
+				public void actionPerformed(ActionEvent click)
+				{
+					baseController.impactHipsters();
+					repaint();
+				}
+			});
 		}
 }
